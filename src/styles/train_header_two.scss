@@ -1,0 +1,42 @@
+
+
+.my-list-1 {
+
+  .am-list-item.am-list-item-middle .am-list-line {
+    padding: 0.7rem;
+  }
+
+  .am-list-item .am-list-line .am-list-content {
+     font-size: 1.1rem;
+     line-height: 1.6;
+     color: #3e4145;
+  }
+
+  .am-list-item .am-list-line .am-list-brief{
+    font-size: 0.2rem;
+  }
+  .am-list-item .am-list-line .am-list-extra {
+    font-size: 0.2rem;
+    margin-top: 2rem;
+  }
+
+}
+
+
+.run-train {
+  font-size: 0.8rem;
+  height: 3rem;
+  line-height: 3rem;
+  position: relative;
+
+
+  .am-icon-lg {
+    color: gray;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -0.75rem;
+  }
+}
