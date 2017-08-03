@@ -14,6 +14,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   background-color: #fff;
+  position: relative;
 }
 
 .clearfix::after {
@@ -92,8 +93,29 @@ body {
   }
 }
 
+.load_action_img {
+  .img {
+    width: 8rem;
+    height: 5rem;
+    background: url("http://orkwtps3q.bkt.clouddn.com/image/load/loading.gif");
+    background-size: 100% 100%;
+    background-color: #fff;
+  }
+}
+
 .small_font {
   font-size: 1rem;
   transform-origin: 0 center;
   transform: scale(0.6);
+}
+
+#overmask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 10;
+  display: none;
 }

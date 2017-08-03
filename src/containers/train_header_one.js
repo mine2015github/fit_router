@@ -1,6 +1,11 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 // import { Carousel, WhiteSpace, WingBlank,List } from 'antd-mobile';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
  import Carousel from 'antd-mobile/lib/carousel';
  import WhiteSpace from 'antd-mobile/lib/white-space';
@@ -8,8 +13,9 @@ import ReactDOM from "react-dom";
  import List from 'antd-mobile/lib/list';
 
 import Gap from "../components/gap.js";
-import Back from "../components/back.js";
 import PersonalTrain from "../components/personal_train.js";
+
+import Train from  "../pages/train/train.js";
 
 import {lunbo,dayRec,news,personal} from "../data/train_header_one.json";
 
@@ -34,17 +40,8 @@ class TrainOne extends Component {
   constructor(props){
     super(props);
     this.state = {lunbo, dayRec, news,personal};
+    this.href = window.location.href;
     const _this = this;
-
-    fetch("/train/one", {
-      method: "get"
-    }).then(function(response){
-      return response.json();
-    }).then(function(data){
-      _this.setState({data: data});
-    }).catch(function(err){
-      console.log(err);
-    });
   }
 
 
@@ -148,11 +145,10 @@ class TrainOne extends Component {
 
         <WingBlank>
           <div  style={title}>我的训练</div>
-
           <div>
             {
               this.state.personal.map((ii,index)=>(
-                <PersonalTrain key={index} index={index} showTrain={_this.showTrain}>
+                <PersonalTrain key={index} index={index} id={ii.id}>
                   <List className="my-list" >
                     <Item extra={ii.time + "分钟"}>
                       {ii.title}
@@ -163,19 +159,21 @@ class TrainOne extends Component {
               ))
             }
           </div>
+
+
+          <div>
+            {
+              this.state.personal.map((ii,index)=>{
+                var path = `/train/${ii.id}`;
+                return (<Route key={index} path={path} render={(props)=>(
+                    <Train {...props} title={ii.title} trainId={ii.id} prev={_this.href} />
+                  )}></Route>)
+                })
+            }
+          </div>
+
         </WingBlank>
 
-        <div className="sub_back" style={{margin: "0rem", padding:"0rem"}}>
-          {
-            this.state.personal.map((ii,index)=>(
-              <Back key={index} show={ii.showTrain} setClose={_this.closeTrainShow}  title={ii.title}>
-                <div style={{height: "1000px"}}>
-                  我的高度是1000px
-                </div>
-              </Back>
-            ))
-          }
-        </div>
 
         <Gap/>
 

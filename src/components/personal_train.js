@@ -1,19 +1,20 @@
 
 import React, {Component} from "react";
 
+import {
+  Link
+} from 'react-router-dom';
+
 
 
 class PersonalTrain extends Component {
 
-  showTrain = ()=>{
-    this.props.showTrain(this.props.index);
-  }
-
   render(){
+    var to = `/train/${this.props.id}`;
     return (
-      <div onClick={this.showTrain} style={{margin: "0rem", padding: "0rem"}}>
+      <Link to={to} style={{margin: "0rem", padding: "0rem"}}>
         {this.props.children}
-      </div>
+      </Link>
     );
   }
 }
