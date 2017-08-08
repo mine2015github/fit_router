@@ -9,6 +9,9 @@ import TrainTabs from "./train_header.js";
 import StateTabs from "./state_header.js";
 import FindTabs from "./find_header.js";
 import User from './user.js';
+import Login from "./login.js";
+
+import $ from 'n-zepto';
 
 
 import "../styles/bottom_bars.scss";
@@ -18,7 +21,7 @@ class BottomBar extends Component {
     super(props);
     this.state = {
       selectedTab: 'oneTab',
-      hidden: false,
+      hidden: false
     };
   }
 
@@ -28,6 +31,14 @@ class BottomBar extends Component {
         {pageText}tab
       </div>
     );
+  }
+
+  commonHandler=()=>{
+    if (window.location.pathname !== "" ){
+      window.history.go(-1);
+      $("body").css({height:"auto", overflow:"auto"});
+      $(".am-tabs-bar").css("display", "flex");
+    }
   }
 
   render() {
@@ -56,6 +67,7 @@ class BottomBar extends Component {
           }
           selected={this.state.selectedTab === 'oneTab'}
           onPress={() => {
+            this.commonHandler();
             this.setState({
               selectedTab: 'oneTab',
             });
@@ -73,6 +85,7 @@ class BottomBar extends Component {
           key="动态"
           selected={this.state.selectedTab === 'twoTab'}
           onPress={() => {
+            this.commonHandler();
             this.setState({
               selectedTab: 'twoTab',
             });
@@ -103,6 +116,7 @@ class BottomBar extends Component {
           dot
           selected={this.state.selectedTab === 'threeTab'}
           onPress={() => {
+            this.commonHandler();
             this.setState({
               selectedTab: 'threeTab',
             });
@@ -120,12 +134,14 @@ class BottomBar extends Component {
           key="我的"
           selected={this.state.selectedTab === 'fourTab'}
           onPress={() => {
+            this.commonHandler();
             this.setState({
               selectedTab: 'fourTab',
             });
           }}
         >
-        <User/>
+        {/* <User/> */}
+        <Login/>
         </TabBar.Item>
       </TabBar>
     </div>

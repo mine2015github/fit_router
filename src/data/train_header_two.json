@@ -17,25 +17,34 @@
       "long": 0.4,
       "distance": 4.3,
       "members": 63
-    }
+      },{
+        "name": "大学田径场",
+        "long": 0.4,
+        "distance": 4.3,
+        "members": 63
+      }
   ],
   "runTrains": [
     {
+      "id":7,
       "name":"预热激活跑",
       "members": 15578,
       "time": 27
     },
     {
-      "name":"分段跑",
+      "id":8,
+      "name":"分段.初级燃脂跑",
       "members": 1598,
       "time": 25
     },
     {
-      "name":"分段.初级燃脂跑",
+      "id":9,
+      "name":"分段.进阶燃脂跑",
       "members": 1598,
       "time": 23
     },
     {
+      "id":10,
       "name":"分段.强化燃脂跑",
       "members": 451598,
       "time": 25

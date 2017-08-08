@@ -6,6 +6,8 @@ import WingBlank from 'antd-mobile/lib/wing-blank';
 import List from 'antd-mobile/lib/list';
 import Flex from 'antd-mobile/lib/flex';
 
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
 import $ from 'n-zepto';
 
 import Show from "../components/show.js";

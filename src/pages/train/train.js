@@ -50,6 +50,9 @@ class Train extends Component {
     $(window).scrollTop(0);
     $("body").css({height:this.height, overflow:"hidden"});
 
+    $(".am-tabs-bar").css("display", "none");
+
+
     this.setState({scrollHeight: this.height - $(".train_course_top").height() - 48});
 
     setTimeout(function() {
@@ -65,9 +68,12 @@ class Train extends Component {
 
   closeHandler = ()=>{
     $("body").css({height:"auto", overflow:"auto"});
+    $(".am-tabs-bar").css("display", "flex");
+
     // window.location.href = this.props.prev;//速度有些慢
     window.history.go(-1);
   }
+
 
   render() {
 
@@ -84,7 +90,7 @@ class Train extends Component {
     };
 
     return (
-      <div className="train_course"  style={{position:"absolute", minHeight:this.height, top:"-4rem", left: "0", right:"0",zIndex:"11"}}>
+      <div className="train_course"  style={{position:"absolute", minHeight:this.height, top: (this.props.isFirst === true ? "0rem":"-1rem"), left: "0", right:"0",zIndex:"11"}}>
         <div className="clearfix train_course_top" style={{ height: "2rem", padding:"1rem", background:"#584f60"}}>
           <img onClick={this.closeHandler} style={{cssFloat: "left", width:"1rem", height: "2rem",background: "none"}}
             src="http://orkwtps3q.bkt.clouddn.com/image/svg/back.svg"/>
@@ -132,7 +138,7 @@ class Train extends Component {
                     var imgSrc = "http://orkwtps3q.bkt.clouddn.com/video/train/" + this.props.trainId + "/" + (i+1) + ".jpg";
                     return (
                       <div key={i} style={{height:"5rem", fontSize:"1rem", marginBottom:"1rem"}} className="clearfix">
-                        <img style={{cssFloat:"left",height:"5rem", width:"auto"}} src={imgSrc}/>
+                        <img style={{cssFloat:"left",height:"5rem", width:"8rem"}}   src={imgSrc}/>
                         <div style={{cssFloat:"left",padding:"1rem", height:"3rem"}}>
                           <div style={{marginBottom:"1rem"}}>{e.title}</div>
                           <div style={{fontSize:"0.8rem", color:"gray"}}>{e.time}{e.unit}</div>

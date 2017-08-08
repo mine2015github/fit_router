@@ -1,0 +1,16 @@
+#login {
+
+  .am-tabs-bar {
+    justify-content: space-around;
+  }
+  .am-tabs-bar .am-tabs-tab{
+    border-bottom: none;
+    flex: none;
+    height: 2rem;
+    line-height: 2rem;
+  }
+
+  .am-tabs-ink-bar{
+    height: 0;
+  }
+}

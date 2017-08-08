@@ -56,6 +56,42 @@
       "ranzhi": 50,
       "desc":"只要一副哑铃就可以充分锻炼肱二头肌、肱三头肌，练出线条紧实的手臂。",
       "image":"http://orkwtps3q.bkt.clouddn.com/video/train/6/1.jpg"
+    },{
+      "id": 7,
+      "title": "预热激活跑",
+      "type": "无器械",
+      "time": 11,
+      "nandu": "K1",
+      "ranzhi": 50,
+      "desc":"适合跑步初学者或很久没跑步的健身爱好者，重新激活你的跑步能力。本课程通过低强度的走跑交替适应性训练，让你的身体能够更快、更轻松的适应户外跑步，体会跑步的乐趣。",
+      "image":"http://orkwtps3q.bkt.clouddn.com/video/train/7/1.jpg"
+    },{
+      "id": 8,
+      "title": "分段跑 · 初级燃脂",
+      "type": "无器械",
+      "time": 11,
+      "nandu": "K1",
+      "ranzhi": 50,
+      "desc":"针对初学跑步人群的户外跑步课程，由慢走、慢跑和快跑组合循环，通过短距离的交替跑步不断刺激心率，提高有氧训练的能力，增加燃脂的效率。降低长距离跑步的障碍，为能够持续固定距离或时间的跑步打下基础。",
+      "image":"http://orkwtps3q.bkt.clouddn.com/video/train/8/1.jpg"
+    },{
+      "id": 9,
+      "title": "分段跑 · 进阶燃脂",
+      "type": "无器械",
+      "time": 11,
+      "nandu": "K3",
+      "ranzhi": 50,
+      "desc":"针对维持在瓶颈期、有跑量积累的减脂人群，由慢跑和快跑组合循环，大强度地刺激心率，提高燃脂效率，增加最大摄氧量，让有氧能力提升到新的阶段。",
+      "image":"http://orkwtps3q.bkt.clouddn.com/video/train/9/1.jpg"
+    },{
+      "id": 10,
+      "title": "分段跑 · HIIT强化燃脂",
+      "type": "无器械",
+      "time": 11,
+      "nandu": "K4",
+      "ranzhi": 50,
+      "desc":"针对经常跑步但是减脂效果不佳的人群，由 800 米、400 米快跑和慢跑组合循环，大强度地刺激心率，提高燃脂效率，增加最大摄氧量。",
+      "image":"http://orkwtps3q.bkt.clouddn.com/video/train/10/1.jpg"
     }
   ]
 }
