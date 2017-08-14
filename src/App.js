@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import BottomBar from "./containers/bottom_bars.js";
-import $ from "n-zepto";
-
 import "./lib/css/antd-mobile.min.css";
+import $ from "n-zepto";
 
 class App extends Component {
 
@@ -14,9 +13,9 @@ class App extends Component {
 
   render(){
     return (
-      <div className="">
-        <BottomBar/>
-      </div>
+        <div className="">
+          <BottomBar/>
+        </div>
     );
   }
 }

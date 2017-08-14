@@ -61,7 +61,8 @@ import React, {Component} from "react";
 
 
     return (
-      <div style={{paddingBottom: "3rem"}}>
+      <div className="find_header_two">
+
         {/*轮播*/}
         <div className="load-img">
           <Carousel {...settings} >
@@ -83,27 +84,27 @@ import React, {Component} from "react";
 
         {/*分类点击*/}
         <div>
-          <Flex style={{height: "3rem", padding:"1rem  0rem", color:"#000", textAlign:"center", fontSize:"0.6rem"}}>
+          <Flex className="classify">
 
             <Flex.Item style={{height:"3.2rem"}}>
-              <a href="https://www.baidu.com" style={{ display: "inline-block",background:"#24c789", width:"2rem", height:"2rem", borderRadius:"50%"}} >
+              <a href="https://www.baidu.com"  className="classify_link">
                 <img style={{width:"100%"}} src="http://orkwtps3q.bkt.clouddn.com/image/svg/food.svg" />
               </a>
-              <p style={{margin: "0.2rem 0 0 0"}}>饮食指南</p>
+              <p className="classify_title">饮食指南</p>
             </Flex.Item>
 
             <Flex.Item style={{height:"3rem"}}>
-              <a href="https://www.baidu.com" style={{ display: "inline-block",background:"#24c789", width:"2rem", height:"2rem", borderRadius:"50%"}} >
+              <a href="https://www.baidu.com" className="classify_link">
                 <img style={{width:"100%"}} src="http://orkwtps3q.bkt.clouddn.com/image/svg/classify.svg" />
               </a>
-              <p style={{margin: "0.2rem 0 0 0"}}>分类食谱</p>
+              <p className="classify_title">分类食谱</p>
             </Flex.Item>
 
             <Flex.Item style={{height:"3rem"}}>
-              <a  href="https://www.baidu.com" style={{ display: "inline-block",background:"#24c789", width:"2rem", height:"2rem", borderRadius:"50%"}} >
+              <a  href="https://www.baidu.com" className="classify_link">
                 <img style={{width:"100%"}} src="http://orkwtps3q.bkt.clouddn.com/image/svg/warehouse.svg" />
               </a>
-              <p style={{margin: "0.2rem 0 0 0"}}>食物库</p>
+              <p className="classify_title">食物库</p>
             </Flex.Item>
 
           </Flex>
@@ -111,7 +112,7 @@ import React, {Component} from "react";
 
         {/*饮品*/}
         <WingBlank>
-          <div className="run-train" style={{title}}>
+          <div className="item" style={{title}}>
             夏日轻饮
             <Icon type="right" size="lg" />
           </div>
@@ -121,11 +122,10 @@ import React, {Component} from "react";
             <div className="clearfix" style={{width:"35rem"}} >
               {
                 this.state.drink.map((ii,index) => (
-                  <a href="https://www.baidu.com" key={index} style={{color:"#000", textAlign:"center", marginRight:"0.3rem", fontSize:"0.5rem",width:"8rem", height:"10rem",float: "left", position: "relative"}}>
+                  <a href="https://www.baidu.com" className="food" key={index}>
                     <img
                       src={require("../images/drink/" + ii.id + ".jpg")}
                       alt="icon"
-                      style={{width: "8rem", height:"8rem"}}
                       onLoad={() => {
                         window.dispatchEvent(new Event('resize'));
                       }}
@@ -142,7 +142,7 @@ import React, {Component} from "react";
 
         {/*肉食*/}
         <WingBlank>
-          <div className="run-train" style={{title}}>
+          <div className="item" style={{title}}>
             肉食主义
             <Icon type="right" size="lg" />
           </div>
@@ -151,11 +151,10 @@ import React, {Component} from "react";
             <div className="clearfix" style={{width:"50rem"}} >
               {
                 this.state.meat.map((ii,index) => (
-                  <a href="https://www.baidu.com" key={index} style={{color:"#000", textAlign:"center", marginRight:"0.3rem", fontSize:"0.5rem",width:"8rem", height:"10rem",float: "left", position: "relative"}}>
+                  <a href="https://www.baidu.com" key={index} className="food" >
                     <img
                       src={require("../images/meat/" + ii.id + ".jpg")}
                       alt="icon"
-                      style={{width: "8rem", height:"8rem"}}
                       onLoad={() => {
                         window.dispatchEvent(new Event('resize'));
                       }}

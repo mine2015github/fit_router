@@ -9,7 +9,6 @@ import "../styles/find_header.scss";
 import FindOne from "./find_header_one.js";
 import FindTwo from "./find_header_two.js";
 import FindThree from "./find_header_three.js";
-// import FindFour from "./find_header_four.js";
 
 const TabPane = Tabs.TabPane;
 
@@ -24,7 +23,7 @@ function handleTabClick(key) {
 
 
 const  FindTabs = () => (
-    <div style={{fontSize: '1rem'}}>
+    <div className="find_header" style={{fontSize: '1rem'}}>
       <Tabs swipeable={false} defaultActiveKey="1" onChange={callback} onTabClick={handleTabClick}>
         <TabPane  tab="精选" key="1">
           <div style={{ }}>

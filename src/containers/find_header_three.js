@@ -79,21 +79,21 @@ import React, {Component} from "react";
            <Flex style={{height: "3rem", padding:"1rem  0rem", color:"#000", textAlign:"center", fontSize:"0.6rem"}}>
 
              <Flex.Item style={{height:"3.2rem"}}>
-               <a href="https://www.baidu.com" style={{ display: "inline-block",background:"#24c789", width:"2rem", height:"2rem", borderRadius:"50%"}} >
+               <a href="https://www.baidu.com" className="classify_link">
                  <img style={{width:"100%"}} src="http://orkwtps3q.bkt.clouddn.com/image/svg/train_action.svg" />
                </a>
                <p style={{margin: "0.2rem 0 0 0"}}>动作</p>
              </Flex.Item>
 
              <Flex.Item style={{height:"3rem"}}>
-               <a href="https://www.baidu.com" style={{ display: "inline-block",background:"#24c789", width:"2rem", height:"2rem", borderRadius:"50%"}} >
+               <a href="https://www.baidu.com" className="classify_link">
                  <img style={{width:"100%"}} src="http://orkwtps3q.bkt.clouddn.com/image/svg/train_music.svg" />
                </a>
                <p style={{margin: "0.2rem 0 0 0"}}>音乐</p>
              </Flex.Item>
 
              <Flex.Item style={{height:"3rem"}}>
-               <a  href="https://www.baidu.com" style={{ display: "inline-block",background:"#24c789", width:"2rem", height:"2rem", borderRadius:"50%"}} >
+               <a  href="https://www.baidu.com" className="classify_link">
                  <img style={{width:"100%"}} src="http://orkwtps3q.bkt.clouddn.com/image/svg/train_all.svg" />
                </a>
                <p style={{margin: "0.2rem 0 0 0"}}>全部训练</p>
@@ -106,7 +106,7 @@ import React, {Component} from "react";
 
 
            <WingBlank>
-             <div className="run-train" style={{title}}>
+             <div className="item" style={{title}}>
                推荐训练
                <Icon type="right" size="lg" />
              </div>
@@ -115,9 +115,8 @@ import React, {Component} from "react";
                <div className="clearfix" style={{width:"50rem"}} >
                  {
                    this.state.recommand.map((ii,index) => (
-                     <a href="https://www.baidu.com" key={index}
-                       style={{color:"#fff", textAlign:"center", marginRight:"0.3rem", fontSize:"0.5rem",width:"16rem", height:"8rem",float: "left", position: "relative"}}>
-                       <img
+                     <a href="https://www.baidu.com" key={index} className="course_link">
+                        <img
                          src={require("../images/find/train/recommand/" + ii.id + ".jpg")}
                          alt="icon"
                          style={{width: "16rem", height:"8rem"}}
@@ -138,7 +137,7 @@ import React, {Component} from "react";
            <Gap/>
 
            <WingBlank>
-             <div className="run-train" style={{title}}>
+             <div className="item" style={{title}}>
                新手入门
                <Icon type="right" size="lg" />
              </div>
@@ -147,8 +146,7 @@ import React, {Component} from "react";
                <div className="clearfix" style={{width:"68rem"}} >
                  {
                    this.state.abc.map((ii,index) => (
-                     <a href="https://www.baidu.com" key={index}
-                       style={{color:"#fff", textAlign:"center", marginRight:"0.3rem", fontSize:"0.5rem",width:"16rem", height:"8rem",float: "left", position: "relative"}}>
+                     <a href="https://www.baidu.com" key={index} className="course_link">
                        <img
                          src={require("../images/find/train/abc/" + ii.id + ".jpg")}
                          alt="icon"
@@ -157,9 +155,9 @@ import React, {Component} from "react";
                            window.dispatchEvent(new Event('resize'));
                          }}
                          />
-                       <p style={{margin: "0rem",position:"absolute", top:"1rem", left: '1rem', fontSize:"1rem"}}>{ii.title}</p>
-                       <p className="small_font" style={{margin: "0rem",position:"absolute", top:"2.5rem", left: '1rem'}}>{ii.members}人已经参加</p>
-                       <p style={{margin: "0rem",position:"absolute", bottom:"1rem", left: '1rem', fontSize:"0.8rem"}}>{ii.grade} {ii.time}分钟</p>
+                       <p>{ii.title}</p>
+                       <p>{ii.members}人已经参加</p>
+                       <p>{ii.grade} {ii.time}分钟</p>
                      </a>
                    ))
                  }
@@ -169,7 +167,7 @@ import React, {Component} from "react";
 
            <Gap />
              <WingBlank>
-               <div className="run-train" style={{title}}>
+               <div className="item" style={{title}}>
                  明星课程
                  <Icon type="right" size="lg" />
                </div>
@@ -178,8 +176,7 @@ import React, {Component} from "react";
                  <div className="clearfix" style={{width:"68rem"}} >
                    {
                      this.state.star.map((ii,index) => (
-                       <a href="https://www.baidu.com" key={index}
-                         style={{color:"#fff", textAlign:"center", marginRight:"0.3rem", fontSize:"0.5rem",width:"16rem", height:"8rem",float: "left", position: "relative"}}>
+                       <a href="https://www.baidu.com" key={index} className="course_link">
                          <img
                            src={require("../images/find/train/star/" + ii.id + ".jpg")}
                            alt="icon"
@@ -188,9 +185,9 @@ import React, {Component} from "react";
                              window.dispatchEvent(new Event('resize'));
                            }}
                            />
-                         <p style={{margin: "0rem",position:"absolute", top:"1rem", left: '1rem', fontSize:"1rem"}}>{ii.title}</p>
-                         <p className="small_font" style={{margin: "0rem",position:"absolute", top:"2.5rem", left: '1rem'}}>{ii.members}人已经参加</p>
-                         <p style={{margin: "0rem",position:"absolute", bottom:"1rem", left: '1rem', fontSize:"0.8rem"}}>{ii.grade} {ii.time}分钟</p>
+                         <p>{ii.title}</p>
+                         <p>{ii.members}人已经参加</p>
+                         <p>{ii.grade} {ii.time}分钟</p>
                        </a>
                      ))
                    }

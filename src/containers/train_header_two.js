@@ -93,7 +93,7 @@ class TrainTwo extends  Component {
 
 
         <WingBlank  className="load-img">
-          <div className="run-train" style={{title}}>
+          <div className="item" style={{title}}>
             跑步相关训练
             <Icon type="right" size="lg" />
           </div>
@@ -111,10 +111,10 @@ class TrainTwo extends  Component {
                     window.dispatchEvent(new Event('resize'));
                   }}
                   />
-                <div style={{fontSize: "1rem",position:"absolute", top:"30%", left: "5%"}}>
-                  <div style={{fontSize: "1.2rem"}}>{ii.name}</div>
-                  <div style={{fontSize: "0.5rem", marginTop: "0.5rem"}}>{ii.members}人参加</div>
-                  <div style={{fontSize: "0.5rem", marginTop: "0.5rem"}}>{ii.time}分钟</div>
+                <div className="trains">
+                  <div>{ii.name}</div>
+                  <div>{ii.members}人参加</div>
+                  <div>{ii.time}分钟</div>
                 </div>
               </Link>
             );})}

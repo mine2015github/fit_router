@@ -62,40 +62,6 @@ class TrainOne extends Component {
     $(".slider-frame").css("min-height", "12rem");
   }
 
-  // showTrain = (index)=>{
-  //   var trains = this.state.personal;
-  //   trains.forEach(function(ele,i){
-  //     if (index === i){
-  //       ele.showTrain = true;
-  //     } else {
-  //       ele.showTrain = false;
-  //     }
-  //   });
-  //   this.setState({personal:trains});
-  //
-  //    $(".bottom_bars .am-tabs-bar").css("display", "none");
-  //
-  //    /*
-  //    显示子窗口时，不需要父窗口滚动，因此，直接将body进行设置。
-  //    */
-  //    $("body").scrollTop(0);
-  //    $("body").css({"overflow":"hidden", "height": $(window).height + 'px'});
-  // }
-
-  //  closeTrainShow = () =>{
-  //    var trains = this.state.personal;
-  //    trains.forEach(function(e,i){
-  //      e.showTrain = false;
-  //    });
-  //    this.setState({personal: trains});
-  //
-  //    $(".bottom_bars .am-tabs-bar").css("display", "flex");
-  //
-  //    /*
-  //    关闭子窗口时，恢复body的滚动。
-  //    */
-  //    $("body").css({"overflow":"auto", "height":'auto' });
-  //  };
 
   render() {
 
@@ -119,9 +85,7 @@ class TrainOne extends Component {
     };
 
     return (
-      <div className="train_header_one" style={{
-        paddingBottom: "3rem"
-      }}>
+      <div className="train_header_one">
         <WingBlank className="star-class load-img">
           <div style={title}>明星课程</div>
           <Carousel {...settings}>
@@ -154,7 +118,7 @@ class TrainOne extends Component {
                 </List>
               </PersonalTrain>
             ))
-}
+            }
           </div>
 
           <div>
@@ -164,7 +128,7 @@ class TrainOne extends Component {
                 <Route key={index} path={path} render={(props) => (<Train {...props} title={ii.title} isFirst={true} trainId={ii.id} prev={_this.href}/>)}></Route>
               )
             })
-}
+            }
           </div>
 
         </WingBlank>

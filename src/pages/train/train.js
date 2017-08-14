@@ -101,7 +101,7 @@ class Train extends Component {
           <div>
             <div style={topImage}>
               <p style={{fontSize:"2rem",margin:"0",position:"absolute",top:"20%"}}>{this.state.trainItem.title}</p>
-              <p  style={{ margin:"0",fontSize:"0.6rem", position:"absolute", top:"70%"}}>{this.state.trainItem.desc}</p>
+              <p  style={{ margin:"0",fontSize:"0.6rem", position:"absolute", top:"60%"}}>{this.state.trainItem.desc}</p>
             </div>
 
             <div style={{padding:"0 0.8rem"}}>

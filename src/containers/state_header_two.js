@@ -13,10 +13,10 @@ import Gap from "../components/gap.js";
 import Follow from "../components/follow.js";
 import RecommandUser from "../components/recommand_user.js";
 
-
 import $ from 'n-zepto';
-
 import {follow,recommand} from "../data/state_header_two.json";
+
+import "../styles/state_header_two.scss";
 
 
 class StateTwo extends Component {
@@ -46,7 +46,7 @@ class StateTwo extends Component {
     const handler = this.clickHandler.bind(this);
 
     return (
-      <div style={{paddingBottom:"3rem"}}>
+      <div className="state_header_two">
 
         <div>
           {
@@ -65,7 +65,7 @@ class StateTwo extends Component {
         <Gap marginTop="0rem" />
 
         <WingBlank style={{paddingBottom:"1rem"}}>
-          <div className="run-train" style={{title}}>
+          <div className="item" style={{title}}>
             推荐用户
             <Icon type="right" size="lg" />
           </div>

@@ -34,7 +34,7 @@ class StateOne extends Component {
 
   render(){
     return (
-      <div  style={{paddingBottom: "3rem"}}>
+      <div className="state_header_one"  style={{paddingBottom: "3rem"}}>
 
         <div className="hot">
          {/*

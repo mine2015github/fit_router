@@ -4,14 +4,11 @@ import Carousel from 'antd-mobile/lib/carousel';
 import WhiteSpace from 'antd-mobile/lib/white-space';
 import WingBlank from 'antd-mobile/lib/wing-blank';
 import List from 'antd-mobile/lib/list';
-
 import $ from "n-zepto";
-
-
-
 import SameCity from "../components/same_city.js";
-
 import {sameCity} from "../data/state_header_three.json";
+
+import "../styles/state_header_three.scss";
 
 class StateThree extends Component {
 
@@ -49,8 +46,7 @@ class StateThree extends Component {
 
   render(){
     return (
-      <div>
-
+      <div className="state_header_three">
         {
           this.state.sameCity.map((elem,index)=>(
             <SameCity key={index} headImg={elem.headImg}

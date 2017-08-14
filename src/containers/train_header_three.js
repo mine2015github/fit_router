@@ -25,7 +25,7 @@ import React, {Component} from "react";
      };
 
      return (
-       <div style={{textAlign: "center"}}>
+       <div className="train_header_three" style={{textAlign: "center"}}>
          <div style={{marginTop: "5rem"}}><Miles mile={10} title="CICLING"/></div>
          <div style={goStyle}>
            开始你的骑行

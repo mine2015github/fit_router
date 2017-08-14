@@ -58,7 +58,7 @@ class TrainFour extends Component {
     const recordHandler = this.recordHandler.bind(this);
 
     return (
-      <div>
+      <div className="train_header_four">
         <div className="my-search">
           <SearchBar
             value={this.state.value}

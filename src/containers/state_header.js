@@ -53,7 +53,7 @@ class StateTabs extends Component {
 
   render(){
     return (
-      <div>
+      <div className="state_header">
         <div className="state-all" style={{display: this.state.tabShow ? "block": "none" , fontSize: '1rem'}}>
           <Tabs swipeable={false} defaultActiveKey="1" onChange={callback} onTabClick={handleTabClick}>
             <TabPane  tab="热门" key="1">
@@ -82,7 +82,7 @@ class StateTabs extends Component {
           <WhiteSpace />
         </div>
 
-        <div className="publish-panel" style={{ display: this.state.publishShow ? "block": "none", position: "fixed", width: "100%", top: "0", left: "0", bottom: "0"}}>
+        <div className="publish-panel" style={{ display: this.state.publishShow ? "block": "none"}}>
           <Publish closeHandler={this.publishClose} />
         </div>
       </div>

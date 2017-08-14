@@ -14,6 +14,8 @@ import React, {Component} from "react";
 
  import {lunbo, topic, hotEvent, expert} from "../data/find_header_one.json";
 
+ import "../styles/find_header_one.scss";
+
  class FindOne extends Component {
 
    state = {lunbo, topic, hotEvent, expert};
@@ -47,7 +49,7 @@ import React, {Component} from "react";
 
 
     return (
-      <div style={{paddingBottom: "3rem"}}>
+      <div className="find_header_one">
         <div className="load-img">
           <Carousel {...settings} >
 
@@ -69,7 +71,7 @@ import React, {Component} from "react";
         <Gap marginTop="-0.3rem"/>
 
         <WingBlank>
-          <div className="run-train" style={{title}}>
+          <div className="item" style={{title}}>
             话题讨论
             <Icon type="right" size="lg" />
           </div>
@@ -79,7 +81,7 @@ import React, {Component} from "react";
               {
                 this.state.topic.map((ii,index) => (
                   <Flex.Item key={index}>
-                    <a href="https://www.baidu.com" style={{fontSize: "0.8rem",display: "block", position: "relative", color: "#fff"}}>
+                    <a href="https://www.baidu.com" className="topic">
                       <img
                         src={require("../images/topic/" + ii.id + ".jpg")}
                         alt="icon"
@@ -88,7 +90,7 @@ import React, {Component} from "react";
                           window.dispatchEvent(new Event('resize'));
                         }}
                         />
-                      <div style={{position: "absolute", top:"50%", marginTop: "-1rem", width: "50%", height: "2rem", transform: "translate(50%,0)"}}>
+                      <div className="topic_title">
                         <div>{ii.title}</div>
                       </div>
                     </a>
@@ -102,7 +104,7 @@ import React, {Component} from "react";
         <Gap/>
 
         <WingBlank>
-          <div className="run-train" style={{title}}>
+          <div className="item" style={{title}}>
             热门活动
             <Icon type="right" size="lg" />
           </div>
@@ -110,7 +112,7 @@ import React, {Component} from "react";
             {
               this.state.hotEvent.map((ii,index) =>{
                 return (
-                  <a href="https://www.baidu.com" key={index} style={{fontSize: "0.8rem",display: "block", position: "relative", color: "#fff"}}>
+                  <a href="https://www.baidu.com" key={index} className="hot">
                     <img
                       src={require("../images/hot_event/" + ii.id + ".jpg")}
                       alt="icon"
@@ -120,14 +122,11 @@ import React, {Component} from "react";
                       }}
                       />
 
-                    <div style={{position:"absolute", top: "50%", left: "1rem", transform:"translate(0,-50%)", height: "1rem", lineHeight:"1rem",
-                       borderRadius:"0.5rem", padding: "0.5rem", fontSize: "0.5rem", color:"#000", background:"#fff"}}>报名进行中</div>
+                    <div className="hot_baoming">报名进行中</div>
 
-                     <div style={{position:"absolute", top:"64%", left: "1rem",  height: "1rem", lineHeight:"1rem",
-                        fontSize: "1rem", color:"#fff"}}>{ii.title}</div>
+                     <div className="hot_title">{ii.title}</div>
 
-                      <div style={{position:"absolute", top:"80%", right: "0rem",  height: "1rem", lineHeight:"1rem",
-                        padding:"0.3rem",fontSize: "0.3rem", borderRadius:"0.2rem", color:"#fff", background:"#24c789"}}>直播</div>
+                      <div className="hot_live">直播</div>
                   </a>
                 );})
               }
@@ -136,7 +135,7 @@ import React, {Component} from "react";
 
 
         <div>
-          <div className="run-train" style={{title, padding:"0 0.3rem"}}>
+          <div className="item" style={{title, padding:"0 0.3rem"}}>
             达人推荐
             <Icon type="right" size="lg" />
           </div>
@@ -144,25 +143,22 @@ import React, {Component} from "react";
             {
               this.state.expert.map((ii,index) => (
                 <div key={index} style={{position:"relative"}}>
-                  <a href="https://www.baidu.com" className="clearfix"
-                    style={{borderBottom:"1px solid lightgray" ,padding: "1rem",fontSize: "0.8rem",display: "flex"}}>
+                  <a href="https://www.baidu.com" className="clearfix daren">
                     <img
                       src={ii.headImg}
                       alt="icon"
-                      style={{width: "3rem", height: "3rem", borderRadius:"50%"}}
                       onLoad={() => {
                         window.dispatchEvent(new Event('resize'));
                       }}
                       />
 
-                    <div style={{flex:1, color:"#000", padding:"0.3rem"}}>
+                    <div className="daren_desc">
                       <p style={{margin: "0 0 0.5rem 0"}}>{ii.nickName}</p>
                       <p style={{margin: "0", fontSize:"0.5rem", color:"gray"}}>{ii.intro}</p>
                     </div>
                   </a>
 
-                  <div style={{ position:"absolute",height: "1rem", fontSize:"0.5rem", lineHeight:"1rem", right:"1rem" ,top:"50%", transform:"translate(0,-50%)" ,textAlign:"center",
-                    padding: "0.3rem 1.2rem", borderRadius:"1rem", border:"1px solid #24c789", color:"#24c789"}}>关注</div>
+                  <div className="daren_guanzhu">关注</div>
                 </div>
               ))
             }
@@ -172,12 +168,12 @@ import React, {Component} from "react";
         <Gap marginTop="0rem"/>
 
         <WingBlank>
-          <div className="run-train" style={{title}}>
+          <div className="item" style={{title}}>
             精选文章
             <Icon type="right" size="lg" />
           </div>
 
-          <a className="load-img" href="https://www.baidu.com" style={{display:"block", color:"#000", textAlign:"center", fontSize:"0.8rem"}}>
+          <a className="load-img" href="https://www.baidu.com" className="jingxuan">
             <img src={require("../images/select_article/1.jpg")} style={{width:"100%"}} />
             <p>小粗腿、高低肩、没准都是扁平足的锅！</p>
           </a>

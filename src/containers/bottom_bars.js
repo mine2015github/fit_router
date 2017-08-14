@@ -1,9 +1,7 @@
-
 import React, {Component} from "react";
 // import {TabBar,Icon } from 'antd-mobile';
 
 import TabBar from 'antd-mobile/lib/tab-bar';
-import Icon from 'antd-mobile/lib/icon';
 
 import TrainTabs from "./train_header.js";
 import StateTabs from "./state_header.js";
@@ -12,6 +10,8 @@ import User from './user.js';
 import Login from "./login.js";
 
 import $ from 'n-zepto';
+import {connect} from "react-redux";
+import {withRouter} from "react-router";
 
 
 import "../styles/bottom_bars.scss";
@@ -23,15 +23,10 @@ class BottomBar extends Component {
       selectedTab: 'oneTab',
       hidden: false
     };
+
+    console.log(props);
   }
 
-  renderContent(pageText) {
-    return (
-      <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-        {pageText}tab
-      </div>
-    );
-  }
 
   commonHandler=()=>{
     if (window.location.pathname !== "" ){
@@ -140,8 +135,8 @@ class BottomBar extends Component {
             });
           }}
         >
-        {/* <User/> */}
-        <Login/>
+        <User/>
+        {/*<Login/>*/}
         </TabBar.Item>
       </TabBar>
     </div>
@@ -149,4 +144,12 @@ class BottomBar extends Component {
   }
 }
 
+
+/*
+BottomBar中等待添加对应的 state以及dispatch
+*/
+function mapStateToProps(state) {
+  return {login: state.login};
+}
+BottomBar = withRouter(connect(mapStateToProps)(BottomBar));
 export default BottomBar;

@@ -1,9 +1,6 @@
 import React, {Component} from "react";
 
- import Carousel from 'antd-mobile/lib/carousel';
- import WhiteSpace from 'antd-mobile/lib/white-space';
  import WingBlank from 'antd-mobile/lib/wing-blank';
- import List from 'antd-mobile/lib/list';
  import Icon from "antd-mobile/lib/icon";
  import Flex from "antd-mobile/lib/flex";
 
@@ -49,7 +46,7 @@ import React, {Component} from "react";
      };
 
     return (
-      <div style={{paddingBottom:"3rem"}}>
+      <div className="user">
 
         <div className="clearfix" style={{position:"fixed", top: "0", left:"0", zIndex:"10", background:"#fff",width:"100%",fontSize:"1.2rem", height:"1.5rem", padding:"1rem 1rem"}}>
           <span style={{cssFloat:"left"}}>我</span>
@@ -79,8 +76,8 @@ import React, {Component} from "react";
             <Icon  type="right" size="lg" />
         </div>
 
-        <WingBlank style={{paddingBottom:"1rem"}}  className="user-border">
-          <div className="run-train user-font">
+        <WingBlank style={{paddingBottom: "1rem"}} className="user-border">
+          <div className="item user-font">
             我的健康数据
             <Icon type="right" size="lg" />
           </div>
@@ -118,7 +115,7 @@ import React, {Component} from "react";
 
 
         <WingBlank>
-          <div className="run-train user-font">
+          <div className="item user-font">
             徽章
             <span style={{cssFloat:"right",marginRight:"1.5rem"}}>5</span>
             <Icon type="right" size="lg" />
@@ -128,14 +125,14 @@ import React, {Component} from "react";
         <Gap marginTop="0rem"/>
 
         <WingBlank  className="user-border">
-          <div className="run-train user-font">
+          <div className="item user-font">
             运动概况
             <Icon type="right" size="lg" />
           </div>
         </WingBlank>
 
         <WingBlank >
-          <div className="run-train user-font">
+          <div className="item user-font">
             每周目标
             <Icon type="right" size="lg" />
           </div>
@@ -143,21 +140,21 @@ import React, {Component} from "react";
         <Gap marginTop="0rem"/>
 
         <WingBlank className="user-border">
-          <div className="run-train user-font">
+          <div className="item user-font">
             我的活动
             <Icon type="right" size="lg" />
           </div>
         </WingBlank>
 
         <WingBlank className="user-border">
-          <div className="run-train user-font">
+          <div className="item user-font">
             我的收藏
             <Icon type="right" size="lg" />
           </div>
         </WingBlank>
 
         <WingBlank >
-          <div className="run-train user-font">
+          <div className="item user-font">
             我的小组
             <Icon type="right" size="lg" />
           </div>
@@ -166,21 +163,21 @@ import React, {Component} from "react";
 
 
         <WingBlank  className="user-border">
-          <div className="run-train user-font">
+          <div className="item user-font">
             购物车
             <Icon type="right" size="lg" />
           </div>
         </WingBlank>
 
         <WingBlank className="user-border">
-          <div className="run-train user-font">
+          <div className="item user-font">
             购买记录
             <Icon type="right" size="lg" />
           </div>
         </WingBlank>
 
         <WingBlank >
-          <div className="run-train user-font">
+          <div className="item user-font">
             优惠券
             <Icon type="right" size="lg" />
           </div>
