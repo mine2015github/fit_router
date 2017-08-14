@@ -1,10 +1,14 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
+import {withRouter} from "react-router";
 import $ from "n-zepto";
 
 import Tabs from 'antd-mobile/lib/tabs';
 import WhiteSpace from 'antd-mobile/lib/white-space';
+import Toast from 'antd-mobile/lib/toast';
 
 import "../styles/login.scss";
+import "whatwg-fetch";
 
 
 const TabPane = Tabs.TabPane;
@@ -18,6 +22,10 @@ class Login extends Component {
 
   componentDidMount(){
     $("#login .am-tabs-tab").eq(0).css("border-bottom", "2px solid #108ee9");
+    this.phoneInput = $("input[name=phonenumber]").eq(0);
+    this.yanzhengmaInput = $("input[name=yanzhengma]").eq(0);
+    this.accountInput = $("input[name=account]").eq(0);
+    this.passwdInput = $("input[name=passwd]").eq(0);
   }
 
   callback(key) {
@@ -25,6 +33,10 @@ class Login extends Component {
 
   handleTabClick(key) {
     $("#login .am-tabs-tab").eq(key-1).css("border-bottom", "2px solid #108ee9").siblings(".am-tabs-tab").css("border-bottom", "none");
+  }
+
+  showToast=(text)=>{
+    Toast.info(text,2);
   }
 
   passwdHandler = ()=>{
@@ -48,6 +60,90 @@ class Login extends Component {
       $("#login input[name=passwd]").eq(0).attr('type', "password");
       this.isPasswdShow = false;
     }
+    }
+
+  phoneLogin= ()=>{
+
+    let phonenumber = this.phoneInput.val();
+    let  yanzhengma = this.yanzhengmaInput.val();
+
+    if ((!phonenumber) || (!yanzhengma)){
+      this.showToast("手机号或者验证码不可以为空");
+      this.phoneInput.focus();
+      return;
+    }
+
+
+    /*
+    //发送登录信息
+    fetch("/login",{
+      method: 'post',
+      headers: {
+        'Content-type': "application/json"
+      },
+      body:JSON.stringify({
+        phonenumber: phonenumber,
+        yanzhengma: yanzhengma
+      })
+    }).then(function(res){
+      return res.json();
+    }).then(function(data){
+      //根据data判断登录状态
+      if (data.loginStatus){
+      //设置全局的state
+      this.props.dispatch({type:'LOGIN', login:true});
+      } else {
+      this.props.dispatch({type:'LOGIN', login:false});
+      }
+    }).catch(function(err){
+      console.log("login",err);
+    });
+    */
+
+
+
+  }
+
+  passwdLogin=()=>{
+    let account = this.accountInput.val();
+    let  passwd = this.passwdInput.val();
+
+    if ((!account) || (!passwd)){
+      this.showToast("用户名或者密码不能为空！");
+      this.account.focus();
+      return;
+    }
+
+
+    /*
+    //发送登录信息
+    fetch("/login",{
+    method: 'post',
+    headers: {
+    'Content-type': "application/json"
+    },
+    body:JSON.stringify({
+    account:account,
+    passwd: passwd
+    })
+    }).then(function(res){
+    return res.json();
+    }).then(function(data){
+    //根据data判断登录状态
+    if (data.loginStatus){
+    //设置全局的state
+    this.props.dispatch({type:'LOGIN', login:true});
+    } else {
+    this.props.dispatch({type:'LOGIN', login:false});
+    }
+    }).catch(function(err){
+    console.log("login",err);
+    });
+    */
+  }
+
+  getYanzhenma=()=>{
+
   }
 
   render(){
@@ -68,7 +164,7 @@ class Login extends Component {
               <div style={{padding:"1.5rem 0rem"}}>
                 <section className="section_com">
                   <input className="input_area" type="text" name="phonenumber" placeholder="手机号"/>
-                  <button className="yanzhengma">获取验证码</button>
+                  <button  onClick={this.getYanzhenma} className="yanzhengma">获取验证码</button>
                 </section>
 
                 <section className="section_com">
@@ -81,7 +177,7 @@ class Login extends Component {
                 </section>
 
                 <section style={{marginTop: "2rem"}}>
-                  <button className="login_btn">登录</button>
+                  <button onClick={this.phoneLogin} className="login_btn">登录</button>
                 </section>
 
                 <section className="about_us">
@@ -94,7 +190,7 @@ class Login extends Component {
             <TabPane tab="密码登录" key="2">
               <div style={{padding:"1.5rem 0rem"}}>
                 <section className="section_com" >
-                  <input className="input_area" type="text" name="usercount" placeholder="手机/邮箱/用户名"/>
+                  <input className="input_area" type="text" name="account" placeholder="手机/邮箱/用户名"/>
                 </section>
 
                 <section className="section_com">
@@ -106,7 +202,7 @@ class Login extends Component {
                 </section>
 
                 <section style={{marginTop: "2rem"}}>
-                  <button className="login_btn">登录</button>
+                  <button onClick={this.passwdLogin} className="login_btn">登录</button>
                 </section>
 
                 <section className="about_us">
@@ -125,4 +221,7 @@ class Login extends Component {
   }
 }
 
+
+//将dispatch注入 Login
+Login = withRouter(connect()(Login))
 export default Login;

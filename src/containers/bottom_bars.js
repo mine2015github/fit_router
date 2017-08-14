@@ -135,8 +135,7 @@ class BottomBar extends Component {
             });
           }}
         >
-        <User/>
-        {/*<Login/>*/}
+        {this.props.login ? <User/> : <Login/>}
         </TabBar.Item>
       </TabBar>
     </div>
@@ -151,5 +150,7 @@ BottomBar中等待添加对应的 state以及dispatch
 function mapStateToProps(state) {
   return {login: state.login};
 }
+
+//需要使用withRouter对高阶组件进行改写，否则路由就无效了。
 BottomBar = withRouter(connect(mapStateToProps)(BottomBar));
 export default BottomBar;

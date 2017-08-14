@@ -136,3 +136,24 @@ body {
     margin-top: -0.75rem;
   }
 }
+
+.am-toast.am-toast-mask{
+  display: block;
+
+  .am-toast-notice {
+    max-width: 100%;
+  }
+
+  >span{
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translate3d(-50%,0,0);
+  }
+}
+
+
+.am-toast-notice-content .am-toast-text {
+  border-radius: .2rem;
+  padding: .3rem .8rem;
+}
