@@ -12,10 +12,8 @@ import "whatwg-fetch";
 
 
 const TabPane = Tabs.TabPane;
-
-
 class Login extends Component {
-  constructor(props){
+    constructor(props){
     super(props);
     this.isPasswdShow = false;
   }
@@ -99,9 +97,6 @@ class Login extends Component {
       console.log("login",err);
     });
     */
-
-
-
   }
 
   passwdLogin=()=>{
@@ -143,7 +138,17 @@ class Login extends Component {
   }
 
   getYanzhenma=()=>{
-
+    /*
+     fetch("/getyzm", {
+       method: "post"
+     }).then(function(res){
+       return res.json();
+     }).then(function(data){
+       //判断验证码是否发送成功
+     }).catch(function(err){
+       console.log(err);
+     });
+     */
   }
 
   render(){
