@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd-mobile": "^1.4.0",
+    "history": "^4.6.3",
     "iscroll": "^5.2.0",
     "mockjs": "^1.0.1-beta3",
     "n-zepto": "^1.2.0",
