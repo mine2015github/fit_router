@@ -1,20 +1,28 @@
 {
-  "hotVideos":[
-    {
-      "headImg": "http://orkwtps3q.bkt.clouddn.com/image/jpg/show.jpg",
-      "nickName":"尼古拉斯",
-      "timeAgo":1,
-      "videoSrc": "http://orkwtps3q.bkt.clouddn.com/video/mp4/5s.mp4"
-      },{
-      "headImg": "http://orkwtps3q.bkt.clouddn.com/image/jpg/show.jpg",
-      "nickName":"尼古拉斯",
-      "timeAgo":1000,
-      "videoSrc": "http://orkwtps3q.bkt.clouddn.com/video/mp4/5s.mp4"
-      },{
-      "headImg": "http://orkwtps3q.bkt.clouddn.com/image/jpg/show.jpg",
-      "nickName":"尼古拉斯",
-      "timeAgo":300,
-      "videoSrc": "http://orkwtps3q.bkt.clouddn.com/video/mp4/5s.mp4"
-      }
-    ]
+  "hotVideos": [{
+    "headImg": "http://orkwtps3q.bkt.clouddn.com/image/jpg/show.jpg",
+    "nickName": "尼古拉斯",
+    "timeAgo": 1,
+    "videoSrc": "http://orkwtps3q.bkt.clouddn.com/video/mp4/5s.mp4"
+  }, {
+    "headImg": "http://orkwtps3q.bkt.clouddn.com/image/jpg/show.jpg",
+    "nickName": "尼古拉斯",
+    "timeAgo": 1000,
+    "videoSrc": "http://orkwtps3q.bkt.clouddn.com/video/mp4/5s.mp4"
+  }, {
+    "headImg": "http://orkwtps3q.bkt.clouddn.com/image/jpg/show.jpg",
+    "nickName": "尼古拉斯",
+    "timeAgo": 300,
+    "videoSrc": "http://orkwtps3q.bkt.clouddn.com/video/mp4/5s.mp4"
+  }, {
+    "headImg": "http://orkwtps3q.bkt.clouddn.com/image/jpg/show.jpg",
+    "nickName": "尼古拉斯",
+    "timeAgo": 300,
+    "videoSrc": "http://orkwtps3q.bkt.clouddn.com/video/mp4/5s.mp4"
+  }, {
+    "headImg": "http://orkwtps3q.bkt.clouddn.com/image/jpg/show.jpg",
+    "nickName": "尼古拉斯",
+    "timeAgo": 300,
+    "videoSrc": "http://orkwtps3q.bkt.clouddn.com/video/mp4/5s.mp4"
+  }]
 }

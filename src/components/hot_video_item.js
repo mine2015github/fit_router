@@ -25,9 +25,13 @@ class HotVideoItem extends Component {
 
         <div className="hot_video_src">
         {/*object-fit用于让video进行填充*/}
-          <video  muted  loop autoPlay  style={{objectFit:"fill",width:"100%",height: "20rem"}}>
+          <video  className="video_tag" muted  loop>
             <source src={this.props.videoSrc}/>
           </video>
+
+          <div className="video_icon">
+            <img src="http://orkwtps3q.bkt.clouddn.com/image/png/playVideo.png"/>
+          </div>
         </div>
 
       </div>

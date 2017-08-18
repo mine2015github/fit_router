@@ -13,7 +13,6 @@ import $ from 'n-zepto';
 import {connect} from "react-redux";
 import {withRouter} from "react-router";
 
-
 import "../styles/bottom_bars.scss";
 
 class BottomBar extends Component {
@@ -29,11 +28,6 @@ class BottomBar extends Component {
 
 
   commonHandler=()=>{
-    if (window.location.pathname !== "" ){
-      window.history.go(-1);
-      $("body").css({height:"auto", overflow:"auto"});
-      $(".am-tabs-bar").css("display", "flex");
-    }
   }
 
   render() {

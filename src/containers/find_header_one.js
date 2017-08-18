@@ -6,6 +6,7 @@ import React, {Component} from "react";
  import List from 'antd-mobile/lib/list';
  import Icon from "antd-mobile/lib/icon";
 
+
  import Flex from "antd-mobile/lib/flex";
 
  import $ from "n-zepto";

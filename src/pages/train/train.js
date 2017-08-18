@@ -51,6 +51,7 @@ class Train extends Component {
     $("body").css({height:this.height, overflow:"hidden"});
 
     $(".am-tabs-bar").css("display", "none");
+    $(".bottom_bars .am-tab-bar-bar").hide();
 
 
     this.setState({scrollHeight: this.height - $(".train_course_top").height() - 48});
@@ -72,6 +73,7 @@ class Train extends Component {
 
     // window.location.href = this.props.prev;//速度有些慢
     window.history.go(-1);
+    $(".bottom_bars .am-tab-bar-bar").show();
   }
 
 
@@ -153,6 +155,8 @@ class Train extends Component {
             </div>
           </div>
         </div>
+
+        <div className="begin_train_btn">开始训练</div>
       </div>
     );
   }

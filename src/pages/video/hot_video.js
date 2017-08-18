@@ -23,7 +23,7 @@ class HotVideo extends Component {
 
     /*
     向后台请求数据，并且将数据设置到 state中
-    fetch(this.scrollId, {
+    fetch("", {
       method:"get"
     }).then(function(response){
       return response.json();
@@ -42,18 +42,45 @@ class HotVideo extends Component {
     $("body").css({height:this.height, overflow:"hidden"});
 
     $(".am-tabs-bar").css("display", "none");
+    $(".bottom_bars .am-tab-bar-bar").hide();
 
     //2个图标遮挡
     $(".state-publish").hide();
     $(".state-attention").hide();
 
 
-    this.setState({scrollHeight: this.height - $(".hot_video_top").height() - 48});
+    let __height = this.height - $(".hot_video_top").height();
+    this.setState({scrollHeight: __height});
+
+
+    $(".video_tag").each(function(index,elem){
+      elem.selfOffsetTop = $(elem).offset().top;
+    });
+
+    $(".video_tag").get(0).play();
+    $(".video_icon").eq(0).hide();
 
     setTimeout(function() {
       //如果有问题，可以稍作延迟
       //垂直滚动时，不要设置eventPassthrough: true，否则就无效
-      new IScroll("#hot_video_items", {mouseWheel: true});
+      let scrollid = new IScroll("#hot_video_items", {mouseWheel: true});
+      scrollid.on("scrollEnd", function(){
+        let s1 = Math.abs(this.y) + __height * 0.5;
+
+        $(".video_tag").each(function(index,elem){
+          let play = elem.selfOffsetTop - 64  + 320 * 0.5;
+          let pause = elem.selfOffsetTop - 64  + 320;
+
+          if ((s1 > play) && (s1 < pause)){
+            elem.play();
+            $(".video_icon").eq(index).hide();
+          } else {
+            elem.pause();
+            $(".video_icon").eq(index).show();
+          }
+        });
+
+      });
     }, 100);
 
   }
@@ -66,6 +93,10 @@ class HotVideo extends Component {
 
     // window.location.href = this.props.prev;//速度有些慢
     window.history.go(-1);
+    $(".bottom_bars .am-tab-bar-bar").show();
+    $(".video_tag").each(function(index,elem){
+      $(elem).pause();
+    });
   }
 
   formatTime(min){
