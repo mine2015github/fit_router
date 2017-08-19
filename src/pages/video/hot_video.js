@@ -6,6 +6,10 @@ import IScroll from 'iscroll/build/iscroll';
 import "whatwg-fetch";
 import Line from "../../components/line.js";
 
+import  StateDetail from "../../components/state_detail.js";
+
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
 import HotVideoItem from "../../components/hot_video_item.js";
 
 import {hotVideos} from "../../data/hot_videos.json";
@@ -44,7 +48,7 @@ class HotVideo extends Component {
     $(".am-tabs-bar").css("display", "none");
     $(".bottom_bars .am-tab-bar-bar").hide();
 
-    //2个图标遮挡
+    //2个图标(关注和状态发布)有遮挡
     $(".state-publish").hide();
     $(".state-attention").hide();
 
@@ -57,6 +61,9 @@ class HotVideo extends Component {
       elem.selfOffsetTop = $(elem).offset().top;
     });
 
+    /*
+    组件加载完毕之后，第一个视频加载播放
+    */
     $(".video_tag").get(0).play();
     $(".video_icon").eq(0).hide();
 
@@ -64,9 +71,17 @@ class HotVideo extends Component {
       //如果有问题，可以稍作延迟
       //垂直滚动时，不要设置eventPassthrough: true，否则就无效
       let scrollid = new IScroll("#hot_video_items", {mouseWheel: true});
+
+      /*
+      iscroll中的事件
+      this.y等于垂直滚动的值(负数)
+      */
       scrollid.on("scrollEnd", function(){
         let s1 = Math.abs(this.y) + __height * 0.5;
 
+        /*
+        当视频的位置大约滚到到屏幕中间位置时播放，否则停止播放
+        */
         $(".video_tag").each(function(index,elem){
           let play = elem.selfOffsetTop - 64  + 320 * 0.5;
           let pause = elem.selfOffsetTop - 64  + 320;
@@ -95,7 +110,7 @@ class HotVideo extends Component {
     window.history.go(-1);
     $(".bottom_bars .am-tab-bar-bar").show();
     $(".video_tag").each(function(index,elem){
-      $(elem).pause();
+    elem.pause();
     });
   }
 
@@ -126,18 +141,43 @@ class HotVideo extends Component {
         </div>
 
           <div id="hot_video_items" style={{height:this.state.scrollHeight, background:"#fff", overflow:"hidden"}}>
+
+            <div>
             <div>
               {
                 this.state.hotVideos.map((e,index)=>{
                   return (
                     <div key={index}>
-                    <HotVideoItem  headImg={e.headImg} nickName={e.nickName} videoSrc={e.videoSrc} timeAgo={_this.formatTime(e.timeAgo)}/>
+                    <HotVideoItem
+                      desc={e.desc}
+                      id={e.id}
+                      headImg={e.headImg}
+                      nickName={e.nickName}
+                       videoSrc={e.videoSrc}
+                       timeAgo={_this.formatTime(e.timeAgo)}/>
                     </div>
                   );
                 })
               }
             </div>
+
           </div>
+
+          </div>
+
+
+          <Route path="/hotvideo/:id" render={(props)=>{
+              return
+              <StateDetail
+                isFirst={true}
+                headImg={_this.props.headImg}
+                videoSrc={_this.props.videoSrc}
+                nickName={_this.props.nickName}
+                timeAgo={_this.props.timeAgo}
+                desc={_this.props.desc}
+                id={_this.props.id}
+                />
+            }}></Route>
 
       </div>
     );

@@ -10,8 +10,6 @@ class Show extends Component {
   }
 
   componentWillMount(){
-    console.log(this.props.imgSrc);
-
     //img src中使用require(this.props.imgSrc)存在错误
     //更换为服务器图片
   }

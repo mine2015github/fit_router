@@ -5,6 +5,7 @@ import $ from "n-zepto";
 import IScroll from 'iscroll/build/iscroll';
 import "whatwg-fetch";
 import Line from "../../components/line.js";
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 import {train} from "../../data/train.json";
 import {trainVideo} from "../../data/video.json";
@@ -16,13 +17,14 @@ class Train extends Component {
     super(props);
     this.height = $(window).height();
     this.scrollId = "train" + this.props.trainId;
+    console.log(this.props.trainId);
 
     let trainItem = train.find((e,i)=>{
-      return e.id === this.props.trainId;
+      return e.id == this.props.trainId;
     });
 
     let trainItemVideo = trainVideo.find((e,i)=>{
-      return e.id === this.props.trainId;
+      return e.id == this.props.trainId;
     });
 
     this.state = {trainItem,trainItemVideo};

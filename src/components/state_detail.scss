@@ -1,5 +1,4 @@
-.hot_video_item {
-  padding-bottom: 1rem;
+.state_detail_item {
 
   .hot_video_src {
     width: 100%;
@@ -29,24 +28,10 @@
     }
   }
 
-  .share {
-    padding: 1rem;
-  }
-
   .desc {
     padding: 0 1rem;
     margin: 0;
     font-size: .75rem; /* 12/16 */
     line-height: .88rem; /* 14/16 */
-    max-height: 4.38rem; /* 70/16 */
-    overflow: hidden;
   }
-
-  
-  .show_all a{
-    font-size: 12px;
-    padding: 0.3rem 1rem;
-    color: rgb(88,79,96);
-  }
-
 }

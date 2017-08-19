@@ -122,13 +122,15 @@ class TrainOne extends Component {
           </div>
 
           <div>
-            {this.state.personal.map((ii, index) => {
-              var path = `/train/${ii.id}`;
-              return (
-                <Route key={index} path={path} render={(props) => (<Train {...props} title={ii.title} isFirst={true} trainId={ii.id} prev={_this.href}/>)}></Route>
-              )
-            })
-            }
+            <Route path="/train/:id" render={(props)=>{
+                var id = props.match.params.id;
+                var item = _this.state.personal.find((e,i)=>{
+                  return e.id == id;
+                });
+                return (
+                  <Train {...props} title={item.title} isFirst={true} trainId={id} prev={_this.href}/>
+                );
+              }}></Route>
           </div>
 
         </WingBlank>

@@ -1,39 +1,31 @@
 import React, {Component} from "react";
-import "./hot_video_item.scss";
+import "./state_detail.scss";
 
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {withRouter} from "react-router";
+
 import $ from 'n-zepto';
 import PropoTypes from "prop-types";
 import Toast from 'antd-mobile/lib/toast';
-
-import StateDetail from "./state_detail.js";
 
 import Modal from "antd-mobile/lib/modal";
 const operation = Modal.operation;
 
 
-class HotVideoItem extends Component {
+class StateDetail extends Component {
 
   static propotypes = {
-    id: PropoTypes.number.isRequired,
-    desc: PropoTypes.string.isRequired,
-    headImg: PropoTypes.string.isRequired,
-    videoSrc: PropoTypes.string.isRequired,
-    nickName: PropoTypes.string.isRequired,
-    timeAgo: PropoTypes.number.isRequired
+
   }
 
   constructor(props){
     super(props);
+    this.height = $(window).height();
   }
 
 
   componentDidMount(){
-    $(".desc").each(function(index,elem){
-      if ($(elem).height() > 70){
-        $("p.show_all").eq(index).show();
-      }
-    });
+
   }
 
   horn(){
@@ -52,12 +44,16 @@ class HotVideoItem extends Component {
       marginRight: "2rem"
     };
 
-    const url = "/hotvideo/" + this.props.id;
-
     return (
-      <div className="hot_video_item">
+      <div className="state_detail_item"  style={{position:"absolute", minHeight:this.height, top: (this.props.isFirst === true ? "0rem":"-1rem"), left: "0", right:"0",zIndex:"11"}}>
 
-        <div className="hot_video_item_top">
+        <div className="clearfix item_top" style={{ height: "2rem", padding:"1rem", background:"#584f60"}}>
+          <img onClick={this.closeHandler} style={{cssFloat: "left", width:"1rem", height: "2rem",background: "none"}}
+            src="http://orkwtps3q.bkt.clouddn.com/image/svg/back.svg"/>
+          <div style={{color:"#fff",fontSize:"1rem",cssFloat: "left", height:"2rem", lineHeight:"2rem", marginLeft:"1rem"}}>动态详情</div>
+        </div>
+
+        <div className="state_detail_item_top">
           <div  className="clearfix" style={{padding: "1rem"}}>
             <img style={{cssFloat: "left", width:"2.5rem", height:"2.5rem", borderRadius:"50%", border: "0.06rem solid gray"}} src={this.props.headImg}/>
             <div style={{cssFloat: "left", height: "2.5rem", paddingLeft: "0.5rem"}}>
@@ -80,26 +76,22 @@ class HotVideoItem extends Component {
         </div>
 
           <div  className="clearfix  share">
-            <img onClick={this.horn} style={commonStyle} src="//orkwtps3q.bkt.clouddn.com/image/svg/horn.svg" />
+          <img onClick={this.horn} style={commonStyle} src="//orkwtps3q.bkt.clouddn.com/image/svg/horn.svg" />
 
-            <img style={commonStyle} src="//orkwtps3q.bkt.clouddn.com/image/svg/message1.svg" />
+          <img style={commonStyle} src="//orkwtps3q.bkt.clouddn.com/image/svg/message1.svg" />
 
-            <img style={commonStyle} src="//orkwtps3q.bkt.clouddn.com/image/svg/share.svg" />
+          <img style={commonStyle} src="//orkwtps3q.bkt.clouddn.com/image/svg/share.svg" />
 
-            <div onClick={() => operation([
-                { text: '举报', onPress: () => console.log('举报被点击')}
-              ])}
-              style={{cssFloat: "right", fontSize: "2rem", marginTop: "-1.2rem"}}>...</div>
+          <div onClick={() => operation([
+          { text: '举报', onPress: () => console.log('举报被点击')}
+          ])}
+          style={{cssFloat: "right", fontSize: "2rem", marginTop: "-1.2rem"}}>...</div>
+
           </div>
-
           <p className="desc">{this.props.desc}</p>
-          <div className="show_all" onClick={()=>{$(".video_icon").hide()}} style={{dispay:"none"}}>
-                <Link to={url}>全部</Link>
-          </div>
-
-          </div>
+      </div>
     );
   }
 }
 
-export default HotVideoItem;
+export default StateDetail;
