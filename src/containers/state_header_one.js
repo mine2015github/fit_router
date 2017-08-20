@@ -42,7 +42,7 @@ class StateOne extends Component {
         </Link>
 
         <Route path="/hotvideo" exact render={(props)=>{
-            return <HotVideo isFirst={true}/>
+            return <HotVideo  {...props} isFirst={true}/>
           }} ></Route>
 
         <div className="show clearfix">

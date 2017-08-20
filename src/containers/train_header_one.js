@@ -127,6 +127,13 @@ class TrainOne extends Component {
                 var item = _this.state.personal.find((e,i)=>{
                   return e.id == id;
                 });
+
+                if (item === undefined){
+                  item = _this.state.dayRec.find((e,i)=>{
+                    return e.id == id;
+                  });
+                }
+
                 return (
                   <Train {...props} title={item.title} isFirst={true} trainId={id} prev={_this.href}/>
                 );
@@ -171,17 +178,7 @@ class TrainOne extends Component {
           </div>
         </WingBlank>
 
-        <div>
-          {this.state.dayRec.map((ii, index) => {
-            var path = `/train/${ii.id}`;
-            return (
-              <Route key={index} path={path} render={(props) => (<Train {...props} title={ii.title} isFirst={true} trainId={ii.id} prev={_this.href}/>)}></Route>
-            )
-          })
-}
-        </div>
-
-        <WingBlank className="load-img">
+          <WingBlank className="load-img">
           <div style={title}>健康日报</div>
           <div>
             {this.state.news.map(ii => (

@@ -94,7 +94,7 @@ class HotVideoItem extends Component {
 
           <p className="desc">{this.props.desc}</p>
           <div className="show_all" onClick={()=>{$(".video_icon").hide()}} style={{dispay:"none"}}>
-                <Link to={url}>全部</Link>
+                <Link  to={url}>全部</Link>
           </div>
 
           </div>

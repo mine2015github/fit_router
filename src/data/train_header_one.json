@@ -3,12 +3,12 @@
   "dayRec": [{
     "id":5,
     "index": 2,
-    "item": "上肢热身",
+    "title": "上肢热身",
     "time": 10
   },{
     "id":6,
     "index": 3,
-    "item": "哑铃胸肌训练",
+    "title": "哑铃胸肌训练",
     "time": 15
   }],
   "personal":[
@@ -17,29 +17,25 @@
       "id": 1,
       "title": "深蹲入门",
       "lastTrain": 20,
-      "time": 10,
-      "showTrain": false
+      "time": 10
     },
     {
       "id": 2,
       "title": "腹肌撕裂",
       "lastTrain": 15,
-      "time": 17,
-      "showTrain": false
+      "time": 17
     },
     {
       "id": 3,
       "title": "俯卧撑入门",
       "lastTrain": 6,
-      "time": 17,
-      "showTrain": false
+      "time": 17
     },
     {
       "id": 4,
       "title": "徒手胸肌训练",
       "lastTrain": 30,
-      "time": 25,
-      "showTrain": false
+      "time": 25
     }
   ],
   "news": [
