@@ -24,7 +24,7 @@ class Follow extends Component {
   }
 
   horn(){
-    Toast.info("加油1次",2);
+    Toast.info("加油1次",2000);
   }
 
 

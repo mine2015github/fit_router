@@ -141,8 +141,6 @@ class HotVideo extends Component {
         </div>
 
           <div id="hot_video_items" style={{height:this.state.scrollHeight, background:"#fff", overflow:"hidden"}}>
-
-            <div>
             <div>
               {
                 this.state.hotVideos.map((e,index)=>{
@@ -153,31 +151,14 @@ class HotVideo extends Component {
                       id={e.id}
                       headImg={e.headImg}
                       nickName={e.nickName}
-                       videoSrc={e.videoSrc}
-                       timeAgo={_this.formatTime(e.timeAgo)}/>
+                      videoSrc={e.videoSrc}
+                      timeAgo={_this.formatTime(e.timeAgo)}/>
                     </div>
                   );
                 })
               }
             </div>
-
           </div>
-
-          </div>
-
-
-          <Route path="/hotvideo/:id" render={(props)=>{
-              return
-              <StateDetail
-                isFirst={true}
-                headImg={_this.props.headImg}
-                videoSrc={_this.props.videoSrc}
-                nickName={_this.props.nickName}
-                timeAgo={_this.props.timeAgo}
-                desc={_this.props.desc}
-                id={_this.props.id}
-                />
-            }}></Route>
 
       </div>
     );
