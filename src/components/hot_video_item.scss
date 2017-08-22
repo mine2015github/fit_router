@@ -34,7 +34,7 @@
   }
 
   .desc {
-    padding: 0 1rem;
+    padding: 1rem;
     margin: 0;
     font-size: .75rem; /* 12/16 */
     line-height: .88rem; /* 14/16 */
@@ -50,6 +50,24 @@
     font-size: 12px;
     padding: 0.3rem 1rem;
     color: rgb(88,79,96);
+  }
+
+  .jiayou {
+    padding: 0.7rem;
+    font-size: 0.7rem;
+
+    >img {
+      width: 2rem;
+      height: 2rem;
+      vertical-align: middle;
+    }
+
+    .comment {
+      padding: 0.5rem 0;
+      a {
+        color: #363636;
+      }
+    }
   }
 
 }

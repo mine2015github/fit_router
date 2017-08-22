@@ -17,6 +17,10 @@ body {
   position: relative;
 }
 
+i {
+  font-style: normal;
+}
+
 .clearfix::after {
   content: "";
   height: 0;

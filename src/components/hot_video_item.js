@@ -8,6 +8,8 @@ import Toast from 'antd-mobile/lib/toast';
 
 import StateDetail from "./state_detail.js";
 
+import Line from "./line.js";
+
 
 import Modal from "antd-mobile/lib/modal";
 const operation = Modal.operation;
@@ -21,11 +23,14 @@ class HotVideoItem extends Component {
     headImg: PropoTypes.string.isRequired,
     videoSrc: PropoTypes.string.isRequired,
     nickName: PropoTypes.string.isRequired,
-    timeAgo: PropoTypes.number.isRequired
+    timeAgo: PropoTypes.number.isRequired,
+    comments: PropoTypes.number.isRequired,
+    jiayou: PropoTypes.number.isRequired
   }
 
   constructor(props){
     super(props);
+    this.state = {...props};
   }
 
 
@@ -37,8 +42,10 @@ class HotVideoItem extends Component {
     });
   }
 
-  horn(){
-    Toast.info("加油1次",2);
+  horn=()=>{
+    // Toast.info("加油1次",2);
+    let count = ++this.state.jiayou;
+    this.setState({jiayou:count});
   }
 
 
@@ -80,10 +87,18 @@ class HotVideoItem extends Component {
           </div>
         </div>
 
+
+          <p className="desc">{this.props.desc}</p>
+          <div className="show_all" onClick={()=>{$(".video_icon").hide()}} style={{dispay:"none"}}>
+            <Link to={url}>全部</Link>
+          </div>
+
           <div  className="clearfix  share">
             <img onClick={this.horn} style={commonStyle} src="//orkwtps3q.bkt.clouddn.com/image/svg/horn.svg" />
 
-            <img style={commonStyle} src="//orkwtps3q.bkt.clouddn.com/image/svg/message1.svg" />
+            <Link to={url}>
+              <img style={commonStyle} src="//orkwtps3q.bkt.clouddn.com/image/svg/message1.svg" />
+            </Link>
 
             <img style={commonStyle} src="//orkwtps3q.bkt.clouddn.com/image/svg/share.svg" />
 
@@ -93,10 +108,21 @@ class HotVideoItem extends Component {
               style={{cssFloat: "right", fontSize: "2rem", marginTop: "-1.2rem"}}>...</div>
           </div>
 
-          <p className="desc">{this.props.desc}</p>
-          <div className="show_all" onClick={()=>{$(".video_icon").hide()}} style={{dispay:"none"}}>
-                <Link  to={url}>全部</Link>
+          <Line/>
+
+          <div className="jiayou">
+            <img src="http://orkwtps3q.bkt.clouddn.com/image/svg/jirou.svg"/>
+            <img src="http://orkwtps3q.bkt.clouddn.com/image/svg/se.svg"/>
+            <span><i>{this.state.jiayou}</i>&nbsp;个加油</span>
+
+            <div className="comment">
+              <div><Link to={url}>查看全部 <span>{this.state.comments}</span> 评论</Link></div>
+            </div>
+
           </div>
+
+
+
 
           </div>
     );

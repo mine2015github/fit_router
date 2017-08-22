@@ -70,7 +70,8 @@ class HotVideo extends Component {
     setTimeout(function() {
       //如果有问题，可以稍作延迟
       //垂直滚动时，不要设置eventPassthrough: true，否则就无效
-      let scrollid = new IScroll("#hot_video_items", {mouseWheel: true});
+      //使用iScroll,设置click:true,否则a链接点击失效
+      let scrollid = new IScroll("#hot_video_items", {mouseWheel: true, click:true});
 
       /*
       iscroll中的事件
@@ -152,6 +153,8 @@ class HotVideo extends Component {
                       headImg={e.headImg}
                       nickName={e.nickName}
                       videoSrc={e.videoSrc}
+                      comments={e.comments}
+                      jiayou={e.jiayou}
                       timeAgo={_this.formatTime(e.timeAgo)}/>
                     </div>
                   );

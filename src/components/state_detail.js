@@ -42,6 +42,8 @@ class StateDetail extends Component {
 
     let scrollid = new IScroll("#state_detail_item_show", {mouseWheel: true});
 
+    $("#state_detail_item_show video").get(0).play();
+    $("#state_detail_item_show .video_icon").hide();
   }
 
   horn(){
