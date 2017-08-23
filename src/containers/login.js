@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {withRouter} from "react-router";
-import  "zepto";
 
 import Tabs from 'antd-mobile/lib/tabs';
 import WhiteSpace from 'antd-mobile/lib/white-space';
@@ -11,27 +10,64 @@ import "../styles/login.scss";
 import "whatwg-fetch";
 
 
+//index.html中引入zepto(添加了模块)，即 window.$
+const $ = window.$;
+
+
 const TabPane = Tabs.TabPane;
 class Login extends Component {
     constructor(props){
     super(props);
     this.isPasswdShow = false;
+    this.state = {tabKey:1};
   }
 
   componentDidMount(){
     $("#login .am-tabs-tab").eq(0).css("border-bottom", "2px solid #108ee9");
 
+    //组建刚加载完毕时，只显示第一个tab,只能获得2个input
     this.phoneInput = $("input[name=phonenumber]").eq(0);
     this.yanzhengmaInput = $("input[name=yanzhengma]").eq(0);
-    this.accountInput = $("input[name=account]").eq(0);
-    this.passwdInput = $("input[name=passwd]").eq(0);
+
+    this.phoneInput.focus(function(){
+      $(".bottom_bars .am-tab-bar-bar").hide();
+    }).blur(function(){
+      $(".bottom_bars .am-tab-bar-bar").show();
+    });
+
+    this.yanzhengmaInput.focus(function(){
+      $(".bottom_bars .am-tab-bar-bar").hide();
+    }).blur(function(){
+      $(".bottom_bars .am-tab-bar-bar").show();
+    });
   }
 
-  callback(key) {
+  callback = (key)=> {
+
+    if (this.state.tabKey === 2){
+
+      //切换了tab之后才能获得剩余2个input
+      this.accountInput = $("input[name=account]").eq(0);
+      this.passwdInput = $("input[name=passwd]").eq(0);
+
+      this.accountInput.focus(function(){
+        $(".bottom_bars .am-tab-bar-bar").hide();
+      }).blur(function(){
+        $(".bottom_bars .am-tab-bar-bar").show();
+      });
+
+      this.passwdInput.focus(function(){
+        $(".bottom_bars .am-tab-bar-bar").hide();
+      }).blur(function(){
+        $(".bottom_bars .am-tab-bar-bar").show();
+      });
+    }
   }
 
-  handleTabClick(key) {
+  handleTabClick= (key)=> {
     $("#login .am-tabs-tab").eq(key-1).css("border-bottom", "2px solid #108ee9").siblings(".am-tabs-tab").css("border-bottom", "none");
+    let count = this.state.tabKey + 1;
+    this.setState({tabKey: count});
   }
 
   showToast=(text)=>{
