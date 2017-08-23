@@ -99,7 +99,7 @@ class StateDetail extends Component {
 
             <div className="hot_video_src">
               {/*object-fit用于让video进行填充*/}
-              <video  className="video_tag" muted  loop>
+              <video  className="video_tag" muted  >
                 <source src={this.props.videoSrc}/>
               </video>
 
@@ -113,16 +113,9 @@ class StateDetail extends Component {
         </div>
 
         <div  className="clearfix  share">
-          <img onClick={this.horn} style={commonStyle} src="//orkwtps3q.bkt.clouddn.com/image/svg/horn.svg" />
-
-          <img style={commonStyle} src="//orkwtps3q.bkt.clouddn.com/image/svg/message1.svg" />
-
-          <img style={commonStyle} src="//orkwtps3q.bkt.clouddn.com/image/svg/share.svg" />
-
-          <div onClick={() => operation([
-              { text: '举报', onPress: () => console.log('举报被点击')}
-            ])}
-            style={{cssFloat: "right", fontSize: "2rem", marginTop: "-1.2rem"}}>...</div>
+          <img onClick={this.horn}  src="//orkwtps3q.bkt.clouddn.com/image/svg/horn.svg" />
+          <img  src="//orkwtps3q.bkt.clouddn.com/image/svg/message1.svg" />
+          <img  src="//orkwtps3q.bkt.clouddn.com/image/svg/share.svg" />
         </div>
 
       </div>

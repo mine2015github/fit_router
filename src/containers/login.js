@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {withRouter} from "react-router";
-import $ from "n-zepto";
+import  "zepto";
 
 import Tabs from 'antd-mobile/lib/tabs';
 import WhiteSpace from 'antd-mobile/lib/white-space';
@@ -20,6 +20,7 @@ class Login extends Component {
 
   componentDidMount(){
     $("#login .am-tabs-tab").eq(0).css("border-bottom", "2px solid #108ee9");
+
     this.phoneInput = $("input[name=phonenumber]").eq(0);
     this.yanzhengmaInput = $("input[name=yanzhengma]").eq(0);
     this.accountInput = $("input[name=account]").eq(0);
@@ -177,7 +178,7 @@ class Login extends Component {
                 </section>
 
                 <section className="hint">
-                   温馨提示：未注册饿了么帐号的手机号，登录时将自动注册，且代表您已同意
+                   温馨提示：未注册Fit帐号的手机号，登录时将自动注册，且代表您已同意
                    <a href="#" target="_blank">《用户服务协议》</a>
                 </section>
 

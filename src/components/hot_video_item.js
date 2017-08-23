@@ -78,7 +78,7 @@ class HotVideoItem extends Component {
 
         <div className="hot_video_src">
         {/*object-fit用于让video进行填充*/}
-          <video  className="video_tag" muted  loop>
+          <video  className="video_tag" muted  >
             <source src={this.props.videoSrc}/>
           </video>
 
