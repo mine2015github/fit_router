@@ -5,13 +5,14 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {withRouter} from "react-router";
 import IScroll from 'iscroll/build/iscroll';
 
-import $ from 'n-zepto';
+
 import PropoTypes from "prop-types";
 import Toast from 'antd-mobile/lib/toast';
 
 import Modal from "antd-mobile/lib/modal";
 const operation = Modal.operation;
 
+const $ = window.$;
 
 class StateDetail extends Component {
 
@@ -59,6 +60,28 @@ class StateDetail extends Component {
     window.history.go(-1);
     $(".bottom_bars .am-tab-bar-bar").show();
     $("#state_detail_item_show video").get(0).pause();
+  }
+
+  message = ()=>{
+    $(".state_detail_item .share").hide();
+    $(".state_detail_item .write_message").show();
+    $(".state_detail_item .write_message input").focus();
+
+    let top = this.height/2 - 48;
+
+    $(".state_detail_item .write_message").css({
+      "top": top + "px",
+      "left": "0"
+    });
+
+    $(".state_detail_item .write_message input").off("blur");
+
+    $(".state_detail_item .write_message input").on("blur", function(){
+      $(".state_detail_item .share").show();
+      $(".state_detail_item .write_message").hide();
+    });
+
+
   }
 
 
@@ -112,10 +135,32 @@ class StateDetail extends Component {
           </div>
         </div>
 
+        <div className="write_message" style={{display:"none"}}>
+          <input type="text" />
+          <button>发布</button>
+        </div>
+
         <div  className="clearfix  share">
-          <img onClick={this.horn}  src="//orkwtps3q.bkt.clouddn.com/image/svg/horn.svg" />
-          <img  src="//orkwtps3q.bkt.clouddn.com/image/svg/message1.svg" />
-          <img  src="//orkwtps3q.bkt.clouddn.com/image/svg/share.svg" />
+          <div>
+            <div>
+              <img onClick={this.horn}  src="//orkwtps3q.bkt.clouddn.com/image/svg/horn.svg" />
+            </div>
+            <span>1236</span>
+          </div>
+
+          <div onClick={this.message}>
+            <div>
+            <img  src="//orkwtps3q.bkt.clouddn.com/image/svg/message1.svg" />
+            </div>
+            <span>100</span>
+          </div>
+
+          <div>
+            <div>
+              <img  src="//orkwtps3q.bkt.clouddn.com/image/svg/collect.svg" />
+            </div>
+            <span>67</span>
+          </div>
         </div>
 
       </div>
