@@ -65,23 +65,29 @@ class StateDetail extends Component {
   message = ()=>{
     $(".state_detail_item .share").hide();
     $(".state_detail_item .write_message").show();
+
+    $(".state_detail_item .write_message input").off("focus");
+
+    $(".state_detail_item .write_message input").focus(function () {
+      let input = $(this);
+
+      //设置输入框在虚拟键盘的上边
+      setTimeout(function() {
+        input.parent().css({
+          "bottom": "330px"
+        });
+      }, 1200);
+    });
+
     $(".state_detail_item .write_message input").focus();
 
-    let top = this.height/2 - 48;
+  }
 
-    $(".state_detail_item .write_message").css({
-      "top": top + "px",
-      "left": "0"
-    });
+  sendMessage = ()=>{
+    let str = $(".state_detail_item .write_message input").val();
 
-    $(".state_detail_item .write_message input").off("blur");
-
-    $(".state_detail_item .write_message input").on("blur", function(){
-      $(".state_detail_item .share").show();
-      $(".state_detail_item .write_message").hide();
-    });
-
-
+    $(".state_detail_item .write_message").hide();
+    $(".state_detail_item .share").show();
   }
 
 
@@ -135,33 +141,33 @@ class StateDetail extends Component {
           </div>
         </div>
 
-        <div className="write_message" style={{display:"none"}}>
+        <div className="write_message" style={{display: "none"}}>
           <input type="text" />
-          <button>发布</button>
+          <button onClick={this.sendMessage}>发布</button>
         </div>
 
-        <div  className="clearfix  share">
+          <div  className="clearfix  share">
           <div>
-            <div>
-              <img onClick={this.horn}  src="//orkwtps3q.bkt.clouddn.com/image/svg/horn.svg" />
-            </div>
-            <span>1236</span>
+          <div>
+          <img onClick={this.horn}  src="//orkwtps3q.bkt.clouddn.com/image/svg/horn.svg" />
+          </div>
+          <span>1236</span>
           </div>
 
           <div onClick={this.message}>
-            <div>
-            <img  src="//orkwtps3q.bkt.clouddn.com/image/svg/message1.svg" />
-            </div>
-            <span>100</span>
+          <div>
+          <img  src="//orkwtps3q.bkt.clouddn.com/image/svg/message1.svg" />
+          </div>
+          <span>100</span>
           </div>
 
           <div>
-            <div>
-              <img  src="//orkwtps3q.bkt.clouddn.com/image/svg/collect.svg" />
-            </div>
-            <span>67</span>
+          <div>
+          <img  src="//orkwtps3q.bkt.clouddn.com/image/svg/collect.svg" />
           </div>
-        </div>
+          <span>67</span>
+          </div>
+          </div>
 
       </div>
     );

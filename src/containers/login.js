@@ -19,10 +19,13 @@ class Login extends Component {
     constructor(props){
     super(props);
     this.isPasswdShow = false;
+    this.initHeight = $(window).height();
     this.state = {tabKey:1};
   }
 
   componentDidMount(){
+
+    const _this = this;
     $("#login .am-tabs-tab").eq(0).css("border-bottom", "2px solid #108ee9");
 
     //组建刚加载完毕时，只显示第一个tab,只能获得2个input
@@ -31,6 +34,14 @@ class Login extends Component {
 
     this.phoneInput.focus(function(){
       $(".bottom_bars .am-tab-bar-bar").hide();
+
+      //虚拟键盘的高度 h
+      setTimeout(function() {
+        let h = _this.initHeight - $(window).height();
+        alert(h);
+      }, 2000);
+
+
     }).blur(function(){
       $(".bottom_bars .am-tab-bar-bar").show();
     });
