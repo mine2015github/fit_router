@@ -21,12 +21,9 @@ class Back extends Component {
   closeHandler = ()=>{
     this.props.setClose();
   }
-
-
+  
   componentDidMount(){
   }
-
-
 
   render(){
     return (

@@ -69,8 +69,7 @@ class TrainTwo extends  Component {
           使用百度地图时，要使用window去访问，否则也提示 未定义，编译无法通过
           */}
         <div>
-          <Route path="/bmp/caochang" render={(props)=>(
-              <BMapComponent ak="bqHWbmgjAXI7THmM4aG0mwmBXS9SX2c9" isShow={true} callback={(map)=>{
+          <Route path="/bmp/caochang" render={(props)=>(<BMapComponent ak="bqHWbmgjAXI7THmM4aG0mwmBXS9SX2c9" isShow={true} callback={(map)=>{
 
                   var geolocation = new window.BMap.Geolocation();
                 geolocation.getCurrentPosition(function(r){

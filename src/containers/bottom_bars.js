@@ -129,7 +129,11 @@ class BottomBar extends Component {
             });
           }}
         >
-        {this.props.login ? <User/> : <Login/>}
+        {/*
+           {this.props.login ? <User/> : <Login/>}
+           */}
+           <User/>
+
         </TabBar.Item>
       </TabBar>
     </div>
